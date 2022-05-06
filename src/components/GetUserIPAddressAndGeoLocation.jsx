@@ -1,8 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 import LoanForm from './loanForm';
 import LoanResult from './loanResult';
+
+const Wrapper = styled.section`
+  width: 100%;
+  height: 100vh;
+`;
+
+const GeoInfo = styled.div`
+  width: 100%;
+  height: 20vh;
+  background: gray;
+`;
+
+const H1 = styled.h1`
+  margin-bottom: 2vh;\
+`;
+const H3 = styled.h3`
+  margin-bottom: 2vh;
+`;
+const H4 = styled.h4`
+`;
 
 const GetUserIPAddressAndGeoLocation = () => {
 
@@ -47,10 +68,12 @@ const GetUserIPAddressAndGeoLocation = () => {
   };
 
   return (
-    <>
-      <h1>Welcome to loan apps</h1>
-      <h3>User IP is: {userIP}</h3>
-      <h4>User Geolocation is: longitude {longitude}  latitude {latitude} </h4>
+    <Wrapper>
+      <GeoInfo>
+        <H1>Welcome to loan apps</H1>
+        <H3>User IP is: {userIP}</H3>
+        <H4>User Geolocation is: longitude {longitude}  latitude {latitude} </H4>
+      </GeoInfo>
       <LoanForm
         loanAmount={loanAmount} setLoanAmount={setLoanAmount}
         loanTermInYears={loanTermInYears} setLoanTermInYears={setLoanTermInYears}
@@ -58,7 +81,7 @@ const GetUserIPAddressAndGeoLocation = () => {
         handleSubmit={handleSubmit}
       />
       <LoanResult loanData={loanData} />
-    </>
+    </Wrapper>
   )
 }
 

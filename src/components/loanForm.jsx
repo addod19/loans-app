@@ -1,4 +1,22 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const FormWrapper = styled.section`
+  margin-top: 3em;
+  height: 15em;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1em;
+`;
+
+const Div = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 const LoanForm = ({
   loanAmount, loanTermInYears, loanInterestPerYear,
@@ -7,10 +25,10 @@ const LoanForm = ({
 }) => {
 
   return (
-    <>
+    <FormWrapper>
       <h1>Loan form </h1>
-      <form method='POST' onSubmit={handleSubmit}>
-        <div>
+      <Form method='POST' onSubmit={handleSubmit}>
+        <Div>
           <label>
             Loan Amount
           </label>
@@ -20,8 +38,8 @@ const LoanForm = ({
             value={loanAmount}
             onChange={(e) => setLoanAmount(e.target.value)}
           />
-        </div>
-        <div>
+        </Div>
+        <Div>
           <label>
             Loan Terms in Years
           </label>
@@ -31,8 +49,8 @@ const LoanForm = ({
             value={loanTermInYears}
             onChange={(e) => setLoanTermInYears(e.target.value)}
           />
-        </div>
-        <div>
+        </Div>
+        <Div>
           <label>
             Loan Interest Per Year
           </label>
@@ -42,7 +60,7 @@ const LoanForm = ({
             value={loanInterestPerYear}
             onChange={(e) => setLoanInterestPerYear(e.target.value)}
           />
-        </div>
+        </Div>
         <div>
           <button
             type='submit'
@@ -51,8 +69,8 @@ const LoanForm = ({
             Calculate Loan
           </button>
         </div>
-      </form>
-    </>
+      </Form>
+    </FormWrapper>
   )
 }
 
